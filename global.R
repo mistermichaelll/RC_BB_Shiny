@@ -243,19 +243,19 @@ fix_cols <- function(data, column_name){
 # requested information into a locally-stored tibble. 
 # =============================================================================
 
-dotenv::load_dot_env(file = "~/Documents/basketball_shiny/basketball_app/database_access.env")
+dotenv::load_dot_env(file = "./database_access.env")
 
 # additional roster assets 
 # ---------------------------
-mens_roster <- readr::read_csv("~/Documents/basketball_shiny/basketball_app/assets/mens_roster.csv")
-womens_roster <- readr::read_csv("~/Documents/basketball_shiny/basketball_app/assets/womens_roster.csv")
+mens_roster <- readr::read_csv("./assets/mens_roster.csv")
+womens_roster <- readr::read_csv("./assets/womens_roster.csv")
 
 mens_options <- as.list(c("Full Team", mens_roster$name))
 womens_options <- as.list(c("Full Team", womens_roster$name))
 
 # court image assets
 # ------------------
-courtIMG <- jpeg::readJPEG("~/Documents/basketball_shiny/basketball_app/assets/halfcourt.jpg") 
+courtIMG <- jpeg::readJPEG("./assets/halfcourt.jpg") 
 court <- grid::rasterGrob(courtIMG, width = unit(.889, "npc"), height = unit(.95, "npc"))
 
 
