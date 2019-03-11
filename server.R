@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
         autoRefresh()
         bb_shots <- 
             bb_shots %>% 
-            filter(date >= as_date(date_input()) & date <= as_date(date_input()) + 1) %>%
+            filter(date >= as_date(date_input()) & date < as_date(date_input()) + 1) %>%
             filter(teamMW == mw_input())
         
         bb_shots <- if(mw_input() == "Men"){
@@ -149,10 +149,10 @@ shinyServer(function(input, output) {
                 select(-fgMiss, -fshotMiss, -foulMiss) %>%
                 select(name, fgMade, fshotMade, fgAtt, foulMade,
                        ftAtt, Rim, Mid, Paint, Corner3, Reg3, totalPointsMade) %>%
-                mutate(new = fgMade + fshotMade) %>% # intermediate variable to ensure proper %
-                mutate(fgper = ((new / fgAtt) * 100), ftper = (foulMade / ftAtt * 100),
+                mutate(field1 = fgMade + fshotMade) %>% # intermediate variable to ensure proper %
+                mutate(fgper = ((field1 / fgAtt) * 100), ftper = (foulMade / ftAtt * 100),
                        trueper = 100 * (totalPointsMade / (2 * (fgAtt + ftAtt)))) %>%
-                select(-new) # remove intermediate variable
+                select(-field1) # remove intermediate variable
             
             # replace NaN from calculations
             # -----------------------------
