@@ -33,7 +33,7 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
             br(),
             h4("Contribute"),
             p("RC student working with R? Have improvements? Submit a pull request on GitHub."),
-            p(a("mistermichaelll/RC_BB_Shiny"))
+            p(a(".../mistermichaelll/RC_BB_Shiny"))
             ),
 
         # main panel
