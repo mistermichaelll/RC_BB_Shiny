@@ -16,6 +16,10 @@ shinyServer(function(input, output) {
         input$date
     })
     
+    season_input <- reactive({
+        input$season
+    })
+    
     # refresh certain pieces every 
     # two (?) minutes
     # -----------------------------
@@ -26,11 +30,17 @@ shinyServer(function(input, output) {
     # -------------------------------
     gg_info <- reactive({
         autoRefresh()
+        if (season_input() == "Game"){
         bb_shots <-
             bb_shots %>%
             filter(date >= as_date(date_input()) &
                        date < as_date(date_input()) + 1) %>%
             filter(teamMW == mw_input())
+        } else{ 
+            bb_shots <- 
+                bb_shots %>%
+                filter(teamMW == mw_input())
+        }
         
         bb_shots <- if (mw_input() == "Men") {
             bb_shots %>% left_join(mens_roster, bb_shots, by = "jerseyNumber")
