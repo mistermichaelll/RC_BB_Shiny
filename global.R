@@ -11,7 +11,6 @@ library(kableExtra)
 library(ggplot2)
 library(ggthemes)
 library(gridExtra)
-library(plotly)
 
 # ==================================================================
 # HELPER FUNCTIONS

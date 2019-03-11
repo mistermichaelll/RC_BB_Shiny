@@ -1,6 +1,5 @@
 library(shiny)
 
-# Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
     # reactive dataframe, responds to key pieces of 
@@ -192,7 +191,7 @@ shinyServer(function(input, output) {
             ggplot()+
             annotation_custom(court)+
             aes(x = -x_one_side, y = -y_one_side)+
-            geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.75)+
+            geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.95)+
             coord_flip()+
             gg_court_theme()+
             xlim(-475, 5)+
@@ -210,7 +209,7 @@ shinyServer(function(input, output) {
             ggplot()+
             annotation_custom(court)+
             aes(x = -x_one_side, y = -y_one_side)+
-            geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.75)+
+            geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.95)+
             coord_flip()+
             gg_court_theme()+
             xlim(-475, 5)+
