@@ -7,10 +7,10 @@
 ## Overview
 This is the repository for the Roanoke College Basketball Shiny App. This app is intended to replace our slightly antiguated "live" app, and provide a database-connected solution for coaches wishing to see analytics and shot charts from games. 
 
-Our original app looks like this:
+The live app looks like this:
 
 <p align="center">
-  <img width="300" height="300" src="images/ex1.png">
+  <img width="800" height="600" src="images/ex1.png">
 </p>
 
 
