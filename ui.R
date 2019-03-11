@@ -32,7 +32,7 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
             p("Please contact Michael Johnson at", a("mkjohnson@mail.roanoke.edu")),
             br(),
             h4("Contribute"),
-            p("Learning Shiny? Have improvements? Submit a pull request on GitHub."),
+            p("RC student working with R? Have improvements? Submit a pull request on GitHub."),
             p(a("mistermichaelll/RC_BB_Shiny"))
             ),
 
