@@ -10,7 +10,8 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
     # Application title
     titlePanel("Roanoke College Basketball"),
 
-    # Sidebar with various input
+    # sidebar & information 
+    # =======================================================================================
     sidebarLayout(
         sidebarPanel(
             h4("Input"),
@@ -35,10 +36,11 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
             p("RC student working with R? Have improvements? Submit a pull request on GitHub."),
             p(a(".../mistermichaelll/RC_BB_Shiny"))
             ),
-
+        # =======================================================================================
+        
         # main panel
+        # ----------
         mainPanel(
-            # plotOutput("plots",height = "360px"),
             uiOutput("plots"),
             htmlOutput("kable_table")
         )
