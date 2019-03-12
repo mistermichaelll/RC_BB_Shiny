@@ -16,7 +16,7 @@ The live app looks like this:
 Ourly newly created RShiny app looks like this:
 
 <p align="center">
-  <img width="800" height="620" src="images/ex2.png">
+  <img width="800" height="580" src="images/ex2.png">
 </p>
 
 
