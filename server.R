@@ -281,7 +281,7 @@ shinyServer(function(input, output) {
                 aes(x = -x_one_side, y = -y_one_side) +
                 geom_point(aes(
                     col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 1.95) +
+                    shape = factor(madeMiss)), alpha = .9, size = 2.95) +
                 coord_flip() +
                 gg_court_theme() +
                 xlim(-470, -5) +
@@ -303,7 +303,7 @@ shinyServer(function(input, output) {
                 ggplot()+
                 annotation_custom(court) +
                 aes(x = -x_one_side, y = -y_one_side) +
-                geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.95)+
+                geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 2.95)+
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
