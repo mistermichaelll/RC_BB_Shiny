@@ -276,24 +276,23 @@ shinyServer(function(input, output) {
                 filter(team == "ROA") %>%
                 filter(shotClass != "FoulShot") %>%
                 filter(madeMiss != "NA") %>%
-                ggplot() +
-                annotation_custom(court) +
-                aes(x = -x_one_side, y = -y_one_side) +
+                ggplot()+
+                annotation_custom(court)+
+                aes(x = -x_one_side, y = -y_one_side)+
                 geom_point(aes(
                     col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 2.95) +
-                coord_flip() +
-                gg_court_theme() +
-                xlim(-470, -5) +
-                labs(title = "ROA", color = NULL) +
+                    shape = factor(madeMiss)), alpha = .9, size = 2.95)+
+                coord_flip()+
+                gg_court_theme()+
+                xlim(-470, -5)+
+                labs(title = "ROA", color = NULL, shape = NULL)+
                 scale_color_discrete(name = "",
-                                     labels = c("Miss", "Made")) +
-                ylim(-504, 2) +
-                scale_shape_manual(values = c(4, 1), guide = F) +
-                scale_color_manual(
+                                     labels = c("Miss", "Made"))+
+                ylim(-504, 2)+
+                scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+                scale_color_manual(name = "madeMiss",
                     values = c("#878787", "#4268aa"),
-                    labels = c("Miss", "Made")
-                    )
+                    labels = c("Miss", "Made"), guide = F)
             
             chart_opp <-  
                 gg_info() %>%
@@ -309,11 +308,10 @@ shinyServer(function(input, output) {
                 xlim(-470, -5)+
                 labs(title = "OPP", color = NULL) +
                 ylim(-504, 2)+
-                scale_shape_manual(values = c(4, 1), guide = F)+
-                scale_color_manual(
-                    values = c("#878787", "#4268aa"),
-                    labels = c("Miss", "Made")
-                    )
+                scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+                scale_color_manual(name = "madeMiss",
+                                   values = c("#878787", "#4268aa"),
+                                   labels = c("Miss", "Made"), guide = F)
             
             
             legend <- cowplot::get_legend(chart_roa)
@@ -351,11 +349,10 @@ shinyServer(function(input, output) {
                 xlim(-470, -5)+
                 labs(title = input$player, color = NULL)+
                 ylim(-502, 2)+
-                scale_shape_manual(values = c(4, 1), guide = F)+
-                scale_color_manual(
-                    values = c("#878787", "#4268aa"),
-                    labels = c("Miss", "Made")
-                )
+                scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+                scale_color_manual(name = "madeMiss",
+                                   values = c("#878787", "#4268aa"),
+                                   labels = c("Miss", "Made"), guide = F)
             
             player_plot
             
