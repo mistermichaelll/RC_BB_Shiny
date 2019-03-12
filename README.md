@@ -28,9 +28,20 @@ The current app is pretty simple, but provides a base for anyone wishing to impr
   - Single game/full season
   - Date selection
   - Player selection
+  - Automatic updating each season
   
 ## Desired Features
 As always, there are some features that we hope to add in the future. These include:
 
   - Downloadable data/shot charts/etc. 
   - Player input selected instead of typed
+  - Player rosters accessed from database instead of a prewritten CSV 
+  
+## Possible Issues (and their possible solutions) 
+There are a few ways that the code is structured that require attention every now and then. 
+
+  - Rosters have to be updated manually until we find a way to upload them to the server (this will require an update)
+  - We have yet to test the automatic updating, so this may require a patch in the future
+
+
+
