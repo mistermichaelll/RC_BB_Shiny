@@ -259,9 +259,19 @@ courtIMG <- jpeg::readJPEG("./assets/halfcourt.jpg")
 court <- grid::rasterGrob(courtIMG, width = unit(.888, "npc"), height = unit(.95, "npc"))
 
 
-# define the season year 
-# ----------------------
-season_start_year <- 2018
+# define the season variables
+# ---------------------------
+this_year <- year(Sys.Date())
+last_year <- year(Sys.Date()) - 1
+
+# basketball usually starts mid November...
+# once the new season starts, the app should 
+# automatically update. 
+# ------------------------------------------
+this_november <- as_date(paste0(this_year, "-11-01"))
+
+season_start_year <- ifelse(Sys.Date() >= this_november, this_year, 
+                            last_year)
 
 season_start <- paste0(season_start_year, "-11-01")
 

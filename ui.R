@@ -9,12 +9,12 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
 
     # Application title
     titlePanel("Roanoke College Basketball"),
+    h3(season_start_year, " - ", season_start_year + 1, " Season"),
 
     # sidebar & information 
     # =======================================================================================
     sidebarLayout(
         sidebarPanel(
-            h4("Input"),
             selectInput("mw", 
                         "Men/Women:",
                         choice = c("Men", "Women")),
