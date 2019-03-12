@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
     
     # define some needed reactive variables
     # -------------------------------------
@@ -19,6 +19,9 @@ shinyServer(function(input, output) {
     season_input <- reactive({
         input$season
     })
+    
+    # reactive dates
+    # --------------
     
     # refresh certain pieces every 
     # two (?) minutes
@@ -51,6 +54,16 @@ shinyServer(function(input, output) {
             bb_shots %>% left_join(womens_roster, bb_shots, by = "jerseyNumber")
         }
         
+        
+    })
+    
+    observe({
+        
+        if (input$mw == "Men"){
+            updateSelectInput(session, "date", "Select Date:", choices = men_dates)
+        } else{ 
+            updateSelectInput(session, "date", "Select Date:", choices = women_dates)
+        }
         
     })
     

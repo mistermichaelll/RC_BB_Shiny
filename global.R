@@ -365,3 +365,15 @@ bb_shots$points <- ifelse(bb_shots$madeMiss == 1,
 # account for Foul Shots counting as 1 point
 bb_shots$points <- ifelse(bb_shots$madeMiss == 1 & bb_shots$shotClass == "FoulShot", 1, bb_shots$points)
 # =============================================================================
+
+men_dates <- 
+    bb_shots %>%
+    filter(teamMW == "Men")
+
+men_dates <- as_date(men_dates$date)
+
+women_dates <- 
+    bb_shots %>%
+    filter(teamMW == "Women")
+
+women_dates <- as_date(women_dates$date)
