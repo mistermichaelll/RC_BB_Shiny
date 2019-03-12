@@ -1,7 +1,7 @@
 library(shiny)
 
 shinyServer(function(input, output) {
-
+    
     # define some needed reactive variables
     # -------------------------------------
     team_input <- reactive({
@@ -34,11 +34,11 @@ shinyServer(function(input, output) {
         # season functionality
         # --------------------
         if (season_input() == "Game"){
-        bb_shots <-
-            bb_shots %>%
-            filter(date >= as_date(date_input()) &
-                       date < as_date(date_input()) + 1) %>%
-            filter(teamMW == mw_input())
+            bb_shots <-
+                bb_shots %>%
+                filter(date >= as_date(date_input()) &
+                           date < as_date(date_input()) + 1) %>%
+                filter(teamMW == mw_input())
         } else{ 
             bb_shots <- 
                 bb_shots %>%
@@ -58,6 +58,7 @@ shinyServer(function(input, output) {
     # define the dataframe & clean it
     # -------------------------------
     dash_data <- reactive({
+        
         autoRefresh()
         
         # men/women...
@@ -77,9 +78,9 @@ shinyServer(function(input, output) {
         # season functionality!
         # ---------------------
         if (season_input() == "Game"){
-        bb_shots <-
-            bb_shots %>%
-            filter(date >= as_date(date_input()) & date <= as_date(date_input()) + 1)
+            bb_shots <-
+                bb_shots %>%
+                filter(date >= as_date(date_input()) & date <= as_date(date_input()) + 1)
         } else{
             bb_shots <- 
                 bb_shots
@@ -105,6 +106,23 @@ shinyServer(function(input, output) {
         # make `name` a factor (for plotting in report)
         # ----------------------------------------------
         basketball$name <- as.factor(basketball$name)
+        
+        # validation
+        # ----------
+        validate(
+            need(
+                try(
+                    basketball %>%
+                        group_by(name, type) %>%
+                        summarize(countMade = sum(madeMiss == 1)) %>%
+                        spread(key = type, value = countMade) %>%
+                        dplyr::rename(foulMade = Foul,
+                                      fshotMade = FShot,
+                                      fgMade = Shot)
+                    
+                ), ""
+            )
+        )
         
         # create table for shots identified as "made"
         # ---------------------------------------------
@@ -187,6 +205,11 @@ shinyServer(function(input, output) {
                 )
             )
         
+        # additional check 
+        # (some games act wonky)
+        # ----------------------
+        full_table$Corner3 <- replace_na(full_table$Corner3, 0)
+        
         # arrange table by points made
         # -------------------------------
         full_table <-
@@ -228,8 +251,7 @@ shinyServer(function(input, output) {
         
         # replace NaN from calculations
         # -----------------------------
-        full_table$ftper <-
-            tidyr::replace_na(full_table$ftper, 0)
+        full_table$ftper <- tidyr::replace_na(full_table$ftper, 0)
         
         # round decimals
         # --------------
@@ -290,8 +312,8 @@ shinyServer(function(input, output) {
                 ylim(-504, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
-                    values = c("#161616", "#2c4fa0"),
-                    labels = c("Miss", "Made"), guide = F)
+                                   values = c("#161616", "#2c4fa0"),
+                                   labels = c("Miss", "Made"), guide = F)
             
             chart_opp <-  
                 gg_info() %>%
@@ -312,7 +334,10 @@ shinyServer(function(input, output) {
                                    values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
             
+            validate(need(try(cowplot::get_legend(chart_roa)), "No game for this team on this date. Change to men/women's team or pick a different date."))
+            
             legend <- cowplot::get_legend(chart_roa)
+            
             grid_shots <-
                 cowplot::plot_grid(
                     chart_roa + theme(legend.position = "none"),
