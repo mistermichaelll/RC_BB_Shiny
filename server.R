@@ -313,7 +313,6 @@ shinyServer(function(input, output) {
                                    values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
             
-            
             legend <- cowplot::get_legend(chart_roa)
             grid_shots <-
                 cowplot::plot_grid(
