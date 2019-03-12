@@ -14,7 +14,7 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
     # sidebar & information 
     # =======================================================================================
     sidebarLayout(
-        sidebarPanel(
+        sidebarPanel(width = 3,
             selectInput("mw", 
                         "Men/Women:",
                         choice = c("Men", "Women")),
@@ -42,7 +42,7 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
         
         # main panel
         # ----------
-        mainPanel(
+        mainPanel(width = 9, 
             uiOutput("plots"),
             htmlOutput("kable_table")
         )
