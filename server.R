@@ -244,9 +244,7 @@ shinyServer(function(input, output) {
             mutate(
                 fgper = ((field1 / fgAtt) * 100),
                 ftper = (foulMade / ftAtt * 100),
-                trueper = 100 * (totalPointsMade / (2 * (
-                    fgAtt + ftAtt
-                )))
+                trueper = 100 * ((totalPointsMade) / ((2 * (fgAtt)) + (.88 * ftAtt)))
             ) %>%
             select(-field1) # remove intermediate variable
         
