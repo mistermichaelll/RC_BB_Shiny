@@ -347,7 +347,7 @@ shinyServer(function(input, output) {
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
-                labs(title = input$player, color = NULL)+
+                labs(title = input$player, color = NULL, shape = NULL)+
                 ylim(-502, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
