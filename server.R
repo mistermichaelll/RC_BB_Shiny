@@ -291,7 +291,7 @@ shinyServer(function(input, output) {
                 ylim(-504, 2) +
                 scale_shape_manual(values = c(4, 1), guide = F) +
                 scale_color_manual(
-                    values = c("#ad0000", "#0e6b00"),
+                    values = c("#878787", "#4268aa"),
                     labels = c("Miss", "Made")
                     )
             
@@ -311,7 +311,7 @@ shinyServer(function(input, output) {
                 ylim(-504, 2)+
                 scale_shape_manual(values = c(4, 1), guide = F)+
                 scale_color_manual(
-                    values = c("#ad0000", "#0e6b00"),
+                    values = c("#878787", "#4268aa"),
                     labels = c("Miss", "Made")
                     )
             
@@ -345,7 +345,7 @@ shinyServer(function(input, output) {
                 aes(x = -x_one_side, y = -y_one_side)+
                 geom_point(aes(
                     col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 2.45)+
+                    shape = factor(madeMiss)), alpha = .9, size = 4.45)+
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
@@ -353,7 +353,7 @@ shinyServer(function(input, output) {
                 ylim(-502, 2)+
                 scale_shape_manual(values = c(4, 1), guide = F)+
                 scale_color_manual(
-                    values = c("#ad0000", "#0e6b00"),
+                    values = c("#878787", "#4268aa"),
                     labels = c("Miss", "Made")
                 )
             
