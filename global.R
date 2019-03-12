@@ -275,7 +275,7 @@ season_start_year <- ifelse(Sys.Date() >= this_november, this_year,
 
 season_start <- paste0(season_start_year, "-11-01")
 
-season_end <- paste0(season_start_year+ 1, "-02-28")
+season_end <- paste0(season_start_year + 1, "-02-28")
 
 # connect to database
 # -------------------
