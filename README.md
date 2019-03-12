@@ -16,8 +16,10 @@ The live app looks like this:
 Ourly newly created RShiny app looks like this:
 
 <p align="center">
-  <img width="580" height="420" src="images/ex2.png">
+  <img width="580" height="420" src="images/ex2.PNG">
 </p>
+
+A few design changes were made. Shot charts for the opposing teams are now side-by-side, allowing comparisons to be drawn more quickly. Missed shots are identified with an X marker while made shots are identified with an O. Colors are less invasive.  
 
 ## Current Features
 The current app is pretty simple, but provides a base for anyone wishing to improve on it. Currently, it supports:
@@ -26,7 +28,6 @@ The current app is pretty simple, but provides a base for anyone wishing to impr
   - Single game/full season
   - Date selection
   - Player selection
-  - Colors are colorblind friendly! 
   
 ## Desired Features
 As always, there are some features that we hope to add in the future. These include:
