@@ -281,7 +281,7 @@ shinyServer(function(input, output) {
                 aes(x = -x_one_side, y = -y_one_side)+
                 geom_point(aes(
                     col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 2.95)+
+                    shape = factor(madeMiss)), alpha = .9, size = 3.75)+
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
@@ -291,7 +291,7 @@ shinyServer(function(input, output) {
                 ylim(-504, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
-                    values = c("#878787", "#4268aa"),
+                    values = c("#161616", "#2c4fa0"),
                     labels = c("Miss", "Made"), guide = F)
             
             chart_opp <-  
@@ -302,7 +302,7 @@ shinyServer(function(input, output) {
                 ggplot()+
                 annotation_custom(court) +
                 aes(x = -x_one_side, y = -y_one_side) +
-                geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 2.95)+
+                geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 3.75)+
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
@@ -310,7 +310,7 @@ shinyServer(function(input, output) {
                 ylim(-504, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
-                                   values = c("#878787", "#4268aa"),
+                                   values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
             
             
@@ -343,7 +343,7 @@ shinyServer(function(input, output) {
                 aes(x = -x_one_side, y = -y_one_side)+
                 geom_point(aes(
                     col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 4.45)+
+                    shape = factor(madeMiss)), alpha = .9, size = 4.5)+
                 coord_flip()+
                 gg_court_theme()+
                 xlim(-470, -5)+
@@ -351,7 +351,7 @@ shinyServer(function(input, output) {
                 ylim(-502, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
-                                   values = c("#878787", "#4268aa"),
+                                   values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
             
             player_plot
