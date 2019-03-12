@@ -302,6 +302,11 @@ basketball <- basketball %>%
            guarded = guard) %>%
     filter(date >= season_start & date <= season_end)
 
+#TODO: I would like to have the rosters for the year (stored in
+# the format) I have used here on the database. That way, every 
+# year requires little-to-no maintenance besides uploading the 
+# roster to the server.
+
 # =============================================================================
 
 # =============================================================================
