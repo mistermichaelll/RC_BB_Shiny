@@ -21,6 +21,16 @@ Ourly newly created RShiny app looks like this:
 
 A few design changes were made. Shot charts for the opposing teams are now side-by-side, allowing comparisons to be drawn more quickly. Missed shots are identified with an X marker while made shots are identified with an O. Colors are less invasive.  
 
+## Usage Notes
+You will need a file in the folder called `database_access.env` which contains the following: 
+
+  - USERNAME=[username]
+  - PASSWORD=[password]
+  - DB=[database name]
+  - HOST = math.roanoke.edu
+
+This file is not included in the public version for privacy reasons. When deployed to a server, this file needs to be included. 
+
 ## Current Features
 The current app is pretty simple, but provides a base for anyone wishing to improve on it. Currently, it supports:
 
