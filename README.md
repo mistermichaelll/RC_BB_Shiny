@@ -21,6 +21,8 @@ Ourly newly created RShiny app looks like this:
 
 A few design changes were made. Shot charts for the opposing teams are now side-by-side, allowing comparisons to be drawn more quickly. Missed shots are identified with an X marker while made shots are identified with an O. Colors are less invasive.  
 
+[A static version of the app for the 2018-2019 season is available here.](https://mistermichaellll.shinyapps.io/rc_bb_static/)
+
 ## Usage Notes
 You will need a file in the folder called `database_access.env` which contains the following: 
 
