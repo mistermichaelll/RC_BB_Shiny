@@ -10,13 +10,13 @@ This is the repository for the Roanoke College Basketball Shiny App. This app is
 The live app looks like this:
 
 <p align="center">
-  <img width="420" height="400" src="images/ex1.png">
+  <img width="480" height="420" src="images/ex1.png">
 </p>
 
 Ourly newly created RShiny app looks like this:
 
 <p align="center">
-  <img width="480" height="420" src="images/ex2.png">
+  <img width="580" height="420" src="images/ex2.png">
 </p>
 
 ## Current Features
