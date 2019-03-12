@@ -209,6 +209,7 @@ shinyServer(function(input, output) {
         # (some games act wonky)
         # ----------------------
         full_table$Corner3 <- replace_na(full_table$Corner3, 0)
+        full_table$Paint <- replace_na(full_table$Paint, 0)
         
         # arrange table by points made
         # -------------------------------
@@ -334,7 +335,11 @@ shinyServer(function(input, output) {
                                    values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
             
-            validate(need(try(cowplot::get_legend(chart_roa)), "No game for this team on this date. Change to men/women's team or pick a different date."))
+            validate(
+                need(
+                    try(cowplot::get_legend(chart_roa)), 
+                    "No game for this team on this date. Change to men/women's team or pick a different date.")
+            )
             
             legend <- cowplot::get_legend(chart_roa)
             
