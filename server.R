@@ -263,7 +263,7 @@ shinyServer(function(input, output) {
     # a specific player.
     # ------------------------------------------
     width <- reactive({
-        width <- ifelse(input$player == "", "100%", "68%")
+        width <- ifelse(input$player == "", "100%", "63%")
     })
     
     # render plot based on "Player" input
