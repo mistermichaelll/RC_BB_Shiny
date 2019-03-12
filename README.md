@@ -46,7 +46,6 @@ The current app is pretty simple, but provides a base for anyone wishing to impr
 As always, there are some features that we hope to add in the future. These include:
 
   - Downloadable data/shot charts/etc. 
-  - Player input selected instead of typed
   - Player rosters accessed from database instead of a prewritten CSV 
   
 ## Possible Issues (and their possible solutions) 
