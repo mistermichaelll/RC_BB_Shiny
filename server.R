@@ -164,6 +164,7 @@ shinyServer(function(input, output) {
                 )
             )
         
+        
         # data validation
         # ensure table is generated even if
         # certain shot types are not recorded in a game
