@@ -256,7 +256,7 @@ womens_options <- as.list(c("Full Team", womens_roster$name))
 # court image assets
 # ------------------
 courtIMG <- jpeg::readJPEG("./assets/halfcourt.jpg") 
-court <- grid::rasterGrob(courtIMG, width = unit(.889, "npc"), height = unit(.95, "npc"))
+court <- grid::rasterGrob(courtIMG, width = unit(.888, "npc"), height = unit(.95, "npc"))
 
 
 # define the season year 

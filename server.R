@@ -284,11 +284,11 @@ shinyServer(function(input, output) {
                     shape = factor(madeMiss)), alpha = .9, size = 1.95) +
                 coord_flip() +
                 gg_court_theme() +
-                xlim(-475, 5) +
+                xlim(-470, -5) +
                 labs(title = "ROA", color = NULL) +
                 scale_color_discrete(name = "",
                                      labels = c("Miss", "Made")) +
-                ylim(-510, 3) +
+                ylim(-504, 2) +
                 scale_shape_manual(values = c(4, 1), guide = F) +
                 scale_color_manual(
                     values = c("#ad0000", "#0e6b00"),
@@ -306,9 +306,9 @@ shinyServer(function(input, output) {
                 geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 1.95)+
                 coord_flip()+
                 gg_court_theme()+
-                xlim(-475, 5)+
+                xlim(-470, -5)+
                 labs(title = "OPP", color = NULL) +
-                ylim(-510, 3)+
+                ylim(-504, 2)+
                 scale_shape_manual(values = c(4, 1), guide = F)+
                 scale_color_manual(
                     values = c("#ad0000", "#0e6b00"),
@@ -348,9 +348,9 @@ shinyServer(function(input, output) {
                     shape = factor(madeMiss)), alpha = .9, size = 2.45)+
                 coord_flip()+
                 gg_court_theme()+
-                xlim(-475, 5)+
+                xlim(-470, -5)+
                 labs(title = input$player, color = NULL)+
-                ylim(-510, 3)+
+                ylim(-502, 2)+
                 scale_shape_manual(values = c(4, 1), guide = F)+
                 scale_color_manual(
                     values = c("#ad0000", "#0e6b00"),
@@ -366,7 +366,7 @@ shinyServer(function(input, output) {
     # w/ reactive width
     # -------------------------
     output$plots <- renderUI({
-        plotOutput("contents", height = "360px", width = width())
+        plotOutput("contents", height = "380px", width = width())
     })
     
     # render table as kable
