@@ -29,7 +29,7 @@ You will need a file in the folder called `database_access.env` which contains t
   - USERNAME=[username]
   - PASSWORD=[password]
   - DB=[database name]
-  - HOST = math.roanoke.edu
+  - HOST=math.roanoke.edu
 
 This file is not included in the public version for privacy reasons. When deployed to a server, this file needs to be included. 
 
