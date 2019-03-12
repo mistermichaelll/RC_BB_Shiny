@@ -48,6 +48,7 @@ As always, there are some features that we hope to add in the future. These incl
   - Downloadable data/shot charts/etc. 
   - Player input selected instead of typed
   - Player rosters accessed from database instead of a prewritten CSV 
+  - Dates reactive from men/women's team selection.
   
 ## Possible Issues (and their possible solutions) 
 There are a few ways that the code is structured that require attention every now and then. 
