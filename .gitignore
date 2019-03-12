@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 *.ENV
+.DS_store
