@@ -20,6 +20,16 @@ Ourly newly created RShiny app looks like this:
 </p>
 
 ## Current Features
+The current app is pretty simple, but provides a base for anyone wishing to improve on it. Currently, it supports:
 
-  - 
+  - Men/Womens team
+  - Single game/full season
+  - Date selection
+  - Player selection
+  - Colors are colorblind friendly! 
+  
+## Desired Features
+As always, there are some features that we hope to add in the future. These include:
 
+  - Downloadable data/shot charts/etc. 
+  - Player input selected instead of typed
