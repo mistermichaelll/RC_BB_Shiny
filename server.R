@@ -57,12 +57,16 @@ shinyServer(function(input, output, session) {
         
     })
     
+    # change date & player list based on men/women's team
+    # ---------------------------------------------------
     observe({
         
         if (input$mw == "Men"){
             updateSelectInput(session, "date", "Select Date:", choices = men_dates)
+            updateSelectInput(session, "player", "Select Player:", choices = roster_options_men)
         } else{ 
             updateSelectInput(session, "date", "Select Date:", choices = women_dates)
+            updateSelectInput(session, "player", "Select Player:", choices = roster_options_women)
         }
         
     })
@@ -296,14 +300,14 @@ shinyServer(function(input, output, session) {
     # a specific player.
     # ------------------------------------------
     width <- reactive({
-        width <- ifelse(input$player == "", "100%", "63%")
+        width <- ifelse(input$player == "Team", "100%", "63%")
     })
     
     # render plot based on "Player" input
     # -----------------------------------
     output$contents <- renderPlot({
         
-        if (input$player == "") {
+        if (input$player == "Team") {
             chart_roa <- 
                 gg_info() %>%
                 filter(team == "ROA") %>%

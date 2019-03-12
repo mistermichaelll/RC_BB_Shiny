@@ -363,9 +363,11 @@ bb_shots$points <- ifelse(bb_shots$madeMiss == 1,
                                  3, 2), 0)
 
 # account for Foul Shots counting as 1 point
+# ------------------------------------------
 bb_shots$points <- ifelse(bb_shots$madeMiss == 1 & bb_shots$shotClass == "FoulShot", 1, bb_shots$points)
-# =============================================================================
 
+# create dates for men/women's games
+# ----------------------------------
 men_dates <- 
     bb_shots %>%
     filter(teamMW == "Men")
@@ -377,3 +379,7 @@ women_dates <-
     filter(teamMW == "Women")
 
 women_dates <- as_date(women_dates$date)
+
+roster_options_men <- c('Team', mens_roster$name)
+roster_options_women <- c('Team', mens_roster$name)
+
