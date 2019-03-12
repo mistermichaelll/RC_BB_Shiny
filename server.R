@@ -29,7 +29,10 @@ shinyServer(function(input, output) {
     # define reactive plot dataframe
     # -------------------------------
     gg_info <- reactive({
+        
         autoRefresh()
+        # season functionality
+        # --------------------
         if (season_input() == "Game"){
         bb_shots <-
             bb_shots %>%
@@ -70,9 +73,17 @@ shinyServer(function(input, output) {
         
         # move on to date...
         # ------------------
+        
+        # season functionality!
+        # ---------------------
+        if (season_input() == "Game"){
         bb_shots <-
             bb_shots %>%
             filter(date >= as_date(date_input()) & date <= as_date(date_input()) + 1)
+        } else{
+            bb_shots <- 
+                bb_shots
+        }
         
         # we only want the table for ROA
         # ------------------------------
