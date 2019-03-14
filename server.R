@@ -97,7 +97,7 @@ shinyServer(function(input, output, session) {
         if (season_input() == "Game"){
             bb_shots <-
                 bb_shots %>%
-                filter(date >= as_date(date_input()) & date <= as_date(date_input()) + 1)
+                filter(date >= as_date(date_input()) & date < as_date(date_input()) + 1)
         } else{
             bb_shots <- 
                 bb_shots
