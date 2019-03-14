@@ -452,7 +452,7 @@ shinyServer(function(input, output, session) {
                 scale_x_reverse()+
                 scale_y_reverse()+
                 coord_flip()+
-                labs(title = "OPP", color = NULL, shape = NULL)+
+                labs(title = input$player, color = NULL, shape = NULL)+
                 gg_court_theme()+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
