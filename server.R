@@ -441,7 +441,7 @@ shinyServer(function(input, output, session) {
             player_plot <- 
                 P_half_180 + 
                 geom_point(data = gg_info() %>% 
-                               filter(team == "OPP") %>%
+                               filter(team == "ROA") %>%
                                filter(shotClass != "FoulShot") %>%
                                filter(madeMiss != "NA") %>%
                                filter(name == input$player),
