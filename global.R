@@ -383,5 +383,5 @@ women_dates <-
 women_dates <- as_date(women_dates$date)
 
 roster_options_men <- c('Team', mens_roster$name)
-roster_options_women <- c('Team', mens_roster$name)
+roster_options_women <- c('Team', womens_roster$name)
 
