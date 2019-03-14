@@ -308,43 +308,84 @@ shinyServer(function(input, output, session) {
     output$contents <- renderPlot({
         
         if (input$player == "Team") {
+            # chart_roa <- 
+            #     gg_info() %>%
+            #     filter(team == "ROA") %>%
+            #     filter(shotClass != "FoulShot") %>%
+            #     filter(madeMiss != "NA") %>%
+            #     ggplot()+
+            #     annotation_custom(court)+
+            #     aes(x = -x_one_side, y = -y_one_side)+
+            #     geom_point(aes(
+            #         col = factor(madeMiss),
+            #         shape = factor(madeMiss)), alpha = .9, size = 3.75)+
+            #     coord_flip()+
+            #     gg_court_theme()+
+            #     xlim(-470, -5)+
+            #     labs(title = "ROA", color = NULL, shape = NULL)+
+            #     scale_color_discrete(name = "",
+            #                          labels = c("Miss", "Made"))+
+            #     ylim(-504, 2)+
+            #     scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+            #     scale_color_manual(name = "madeMiss",
+            #                        values = c("#161616", "#2c4fa0"),
+            #                        labels = c("Miss", "Made"), guide = F)
+            
             chart_roa <- 
-                gg_info() %>%
-                filter(team == "ROA") %>%
-                filter(shotClass != "FoulShot") %>%
-                filter(madeMiss != "NA") %>%
-                ggplot()+
-                annotation_custom(court)+
-                aes(x = -x_one_side, y = -y_one_side)+
-                geom_point(aes(
-                    col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 3.75)+
+                P_half_180 + 
+                geom_point(data = gg_info() %>% 
+                               filter(team == "ROA") %>%
+                               filter(shotClass != "FoulShot") %>%
+                               filter(madeMiss != "NA"),
+                           aes(x = (x_one_side * .1), y = (y_one_side *.1) - 50, 
+                               shape = factor(madeMiss),
+                               color = factor(madeMiss)), 
+                           size = 3.75)+
+                scale_x_reverse()+
+                scale_y_reverse()+
                 coord_flip()+
-                gg_court_theme()+
-                xlim(-470, -5)+
                 labs(title = "ROA", color = NULL, shape = NULL)+
-                scale_color_discrete(name = "",
-                                     labels = c("Miss", "Made"))+
-                ylim(-504, 2)+
+                gg_court_theme()+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
                                    values = c("#161616", "#2c4fa0"),
                                    labels = c("Miss", "Made"), guide = F)
+                
             
-            chart_opp <-  
-                gg_info() %>%
-                filter(team == "OPP") %>%
-                filter(shotClass != "FoulShot") %>%
-                filter(madeMiss != "NA") %>%
-                ggplot()+
-                annotation_custom(court) +
-                aes(x = -x_one_side, y = -y_one_side) +
-                geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 3.75)+
+            # chart_opp <-  
+            #     gg_info() %>%
+            #     filter(team == "OPP") %>%
+            #     filter(shotClass != "FoulShot") %>%
+            #     filter(madeMiss != "NA") %>%
+            #     ggplot()+
+            #     annotation_custom(court) +
+            #     aes(x = -x_one_side, y = -y_one_side) +
+            #     geom_point(aes(col = factor(madeMiss), shape = factor(madeMiss)), alpha = .9, size = 3.75)+
+            #     coord_flip()+
+            #     gg_court_theme()+
+            #     xlim(-470, -5)+
+            #     labs(title = "OPP", color = NULL) +
+            #     ylim(-504, 2)+
+            #     scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+            #     scale_color_manual(name = "madeMiss",
+            #                        values = c("#161616", "#2c4fa0"),
+            #                        labels = c("Miss", "Made"), guide = F)
+            
+            chart_opp <- 
+                P_half_180 + 
+                geom_point(data = gg_info() %>% 
+                               filter(team == "OPP") %>%
+                               filter(shotClass != "FoulShot") %>%
+                               filter(madeMiss != "NA"),
+                           aes(x = (x_one_side * .1), y = (y_one_side *.1) - 50, 
+                               shape = factor(madeMiss),
+                               color = factor(madeMiss)), 
+                           size = 3.75)+
+                scale_x_reverse()+
+                scale_y_reverse()+
                 coord_flip()+
+                labs(title = "OPP", color = NULL, shape = NULL)+
                 gg_court_theme()+
-                xlim(-470, -5)+
-                labs(title = "OPP", color = NULL) +
-                ylim(-504, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
                                    values = c("#161616", "#2c4fa0"),
@@ -375,23 +416,44 @@ shinyServer(function(input, output, session) {
             team_plot
             
         } else{
-            player_plot <-
-                gg_info() %>%
-                filter(team == "ROA") %>%
-                filter(shotClass != "FoulShot") %>%
-                filter(madeMiss != "NA") %>%
-                filter(name == input$player) %>%
-                ggplot()+
-                annotation_custom(court)+
-                aes(x = -x_one_side, y = -y_one_side)+
-                geom_point(aes(
-                    col = factor(madeMiss),
-                    shape = factor(madeMiss)), alpha = .9, size = 4.5)+
+            # player_plot <-
+            #     gg_info() %>%
+            #     filter(team == "ROA") %>%
+            #     filter(shotClass != "FoulShot") %>%
+            #     filter(madeMiss != "NA") %>%
+            #     filter(name == input$player) %>%
+            #     ggplot()+
+            #     annotation_custom(court)+
+            #     aes(x = -x_one_side, y = -y_one_side)+
+            #     geom_point(aes(
+            #         col = factor(madeMiss),
+            #         shape = factor(madeMiss)), alpha = .9, size = 4.5)+
+            #     coord_flip()+
+            #     gg_court_theme()+
+            #     xlim(-470, -5)+
+            #     labs(title = input$player, color = NULL, shape = NULL)+
+            #     ylim(-502, 2)+
+            #     scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
+            #     scale_color_manual(name = "madeMiss",
+            #                        values = c("#161616", "#2c4fa0"),
+            #                        labels = c("Miss", "Made"), guide = F)
+            
+            player_plot <- 
+                P_half_180 + 
+                geom_point(data = gg_info() %>% 
+                               filter(team == "OPP") %>%
+                               filter(shotClass != "FoulShot") %>%
+                               filter(madeMiss != "NA") %>%
+                               filter(name == input$player),
+                           aes(x = (x_one_side * .1), y = (y_one_side *.1) - 50, 
+                               shape = factor(madeMiss),
+                               color = factor(madeMiss)), 
+                           size = 3.75)+
+                scale_x_reverse()+
+                scale_y_reverse()+
                 coord_flip()+
+                labs(title = "OPP", color = NULL, shape = NULL)+
                 gg_court_theme()+
-                xlim(-470, -5)+
-                labs(title = input$player, color = NULL, shape = NULL)+
-                ylim(-502, 2)+
                 scale_shape_manual(labels = c("Miss", "Made"), values = c(4, 1))+
                 scale_color_manual(name = "madeMiss",
                                    values = c("#161616", "#2c4fa0"),
@@ -427,4 +489,5 @@ shinyServer(function(input, output, session) {
                 "Efficiency" = 3
             ))
     })
+    session$onSessionEnded(stopApp)
 })

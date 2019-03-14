@@ -12,6 +12,8 @@ library(ggplot2)
 library(ggthemes)
 library(gridExtra)
 
+source('./gg_court.R')
+
 # ==================================================================
 # HELPER FUNCTIONS
 # 
